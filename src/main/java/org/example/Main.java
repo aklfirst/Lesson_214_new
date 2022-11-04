@@ -1,48 +1,48 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<>(10);
-        StringList stringList = new StringMethods(10);
 
-        arrayList.add("one");
-        arrayList.add("two");
-        arrayList.add("three");
-        stringList.add("one");
-        stringList.add("two");
-        stringList.add("three");
-        stringList.add("four");
-        stringList.add("five");
-        stringList.add("six");
-        stringList.add("seven");
-        stringList.add("eight");
-        stringList.add("nine");
-        stringList.add("ten");
-        stringList.add("eleven");
-        stringList.remove(9);
-        stringList.set(0, "0");
-        stringList.set(9, "10");
+        public static void main(String[] args) {
+                ArrayList<Integer> arrayList = new ArrayList<>(100000);
+                StringMethods stringList = new StringMethods();
 
-        System.out.println(arrayList);
-        System.out.println(Arrays.toString(stringList.toArray()));
+                Random random = new Random();
 
-        System.out.println("arrayList позиция #0: " + arrayList.get(0));
-        System.out.println("stringArrayList позиция #10: " + stringList.get(10));
+                random.setSeed(System.currentTimeMillis());
+
+                for (int i = 0; i < 100000; i++) {
+                        Integer r = random.nextInt(100000);
+                        arrayList.add(r);
+                }
 
 
-        arrayList.clear();
-        stringList.clear();
+                Integer[] arrayCopyForSort1 = arrayList.toArray(new Integer[arrayList.size()]);
+                Integer[] arrayCopyForSort2 = arrayList.toArray(new Integer[arrayList.size()]);
+                Integer[] arrayCopyForSort3 = arrayList.toArray(new Integer[arrayList.size()]);
+
+                long start;
+
+                start = System.currentTimeMillis();
+                stringList.sortBubble(arrayCopyForSort1);
+                System.out.println("sortBubble time: " + (System.currentTimeMillis() - start));
+
+                start = System.currentTimeMillis();
+                stringList.sortSelection(arrayCopyForSort2);
+                System.out.println("sortSelection time: " + (System.currentTimeMillis() - start));
+
+                start = System.currentTimeMillis();
+                stringList.sortInsertion(arrayCopyForSort3);
+                System.out.println("sortInsertion time: " + (System.currentTimeMillis() - start));
+
+                arrayList.add(11);
+                arrayList.add(12);
+                arrayList.add(13);
+
+                System.out.println("arrayList.contains(11) = " + arrayList.contains(11));
+                System.out.println("arrayList.contains(13) = " + arrayList.contains(13));
 
 
-        System.out.println(arrayList);
-        System.out.println(Arrays.toString(stringList.toArray()));
-
-
-        System.out.println("Size: " + stringList.size());
-        System.out.println(stringList.isEmpty());
-    }
-
+        }
 }

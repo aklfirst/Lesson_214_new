@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SpringMethodsTest {
 
-    StringList stringList = new StringMethods(10);
+    StringList stringList = new StringMethods();
 
     @BeforeEach
     void clearList() {
@@ -21,32 +21,32 @@ class SpringMethodsTest {
 
     @Test
     void checkAdd() {
-        String actual1 = stringList.add("five");
-        String actual2 = stringList.add("three");
+        Integer actual1 = stringList.add(456);
+        Integer actual2 = stringList.add(549);
 
-        assertEquals("five", actual1);
-        assertEquals("three", actual2);
+        assertEquals(456, actual1);
+        assertEquals(549, actual2);
 
         assertEquals(2, stringList.size());
-        assertTrue(stringList.contains("five"));
-        assertTrue(stringList.contains("three"));
-        assertEquals(1, stringList.lastIndexOf("three"));
-        assertEquals(-1, stringList.lastIndexOf("two"));
+        assertTrue(stringList.contains(456));
+        assertTrue(stringList.contains(549));
+        assertEquals(1, stringList.lastIndexOf(549));
+        assertEquals(-1, stringList.lastIndexOf(457));
     }
 
     @Test
     void checkAddByIndex() {
 
-        String actual1 = stringList.add(0, "zero");
-        assertTrue(Objects.equals(stringList.get(0), "zero"));
+        Integer actual1 = stringList.add(0, 0);
+        assertTrue(Objects.equals(stringList.get(0), 0));
 
     }
 
     @Test
     void testByErrorMessages() {
 
-        assertThrows(WrongIndexException.class,()-> stringList.add(11,"eleven"));
-        assertThrows(WrongIndexException.class,()-> stringList.set(15,"15"));
+        assertThrows(WrongIndexException.class,()-> stringList.add(11,11));
+        assertThrows(WrongIndexException.class,()-> stringList.set(15,15));
         assertThrows(WrongIndexException.class,()-> stringList.remove(15));
         assertThrows(WrongItemException.class,()-> stringList.add(0,null));
         assertThrows(WrongItemException.class,()-> stringList.set(0,null));
@@ -55,32 +55,31 @@ class SpringMethodsTest {
 
     @Test
     void checkSet() {
-        stringList.add(0, "zero");
-        String actual1 = stringList.set(0, "eleven");
-        assertTrue(Objects.equals(stringList.get(0), "eleven"));
+        stringList.add(0, 0);
+        Integer actual1 = stringList.set(0, 11);
+        assertTrue(Objects.equals(stringList.get(0), 11));
 
     }
 
     @Test
     void checkRemove() {
-        stringList.add(0, "zero");
-        stringList.add(1, "one");
-        stringList.add(2, "two");
+        stringList.add(0, 0);
+        stringList.add(1, 1);
+        stringList.add(2, 2);
         assertFalse(stringList.isEmpty());
-        String actual1 = stringList.remove(2);
-        System.out.println(stringList.get(2));
-        String actual2 = stringList.remove(1);
-        String actual3 = stringList.remove(0);
+        Integer actual1 = stringList.remove(2);
+        Integer actual2 = stringList.remove(1);
+        Integer actual3 = stringList.remove(0);
         assertTrue(stringList.isEmpty());
     }
 
     @Test
     void checkListsEqual() {
-        stringList.add("one");
-        stringList.add("two");
-        StringList otherList = new StringMethods(10);
-        otherList.add("one");
-        otherList.add("two");
+        stringList.add(1);
+        stringList.add(2);
+        StringList otherList = new StringMethods();
+        otherList.add(1);
+        otherList.add(2);
 
         assertTrue(stringList.equals(otherList));
     }

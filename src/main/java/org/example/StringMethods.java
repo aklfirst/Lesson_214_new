@@ -4,21 +4,24 @@ import java.util.Arrays;
 
 public class StringMethods implements StringList {
 
-    private String[] storage;
+    private Integer[] storage;
     private int size;
 
-    public StringMethods(int i) {
-        storage = new String[10];
+    public StringMethods() {
+        storage = new Integer[100_000];
     }
 
+    public StringMethods(int initSize) {
+        storage = new Integer[initSize];
+    }
 
     @Override
-    public String add(String item) {
+    public Integer add(Integer item) {
         return add(size, item);
     }
 
     @Override
-    public String add(int index, String item) {
+    public Integer add(int index, Integer item) {
         checkIndex(index);
         checkItem(item);
 
@@ -33,7 +36,7 @@ public class StringMethods implements StringList {
     }
 
     @Override
-    public String set(int index, String item) {
+    public Integer set(int index, Integer item) {
         checkIndex(index);
         checkItem(item);
         storage[index] = item;
@@ -41,15 +44,15 @@ public class StringMethods implements StringList {
     }
 
     @Override
-    public String remove(String item) {
+    public Integer remove(Integer item) {
         checkItem(item);
         return remove(indexOf(item));
     }
 
     @Override
-    public String remove(int index) {
+    public Integer remove(int index) {
         checkIndex(index);
-        String item = storage[index];
+        Integer item = storage[index];
         size--;
         if (!(index == size)) {
             System.arraycopy(storage, index + 1, storage, index, size - index);
@@ -58,12 +61,14 @@ public class StringMethods implements StringList {
     }
 
     @Override
-    public boolean contains(String item) {
-        return indexOf(item) > -1;
+    public boolean contains(Integer item) {
+        Integer[] storageCopy = toArray();
+        sortBubble(storageCopy);
+        return binarySearch(storageCopy, item);
     }
 
     @Override
-    public int indexOf(String item) {
+    public int indexOf(int item) {
         for (int i = 0; i < size; i++) {
             if (storage[i].equals(item)) {
                 return i;
@@ -73,7 +78,7 @@ public class StringMethods implements StringList {
     }
 
     @Override
-    public int lastIndexOf(String item) {
+    public int lastIndexOf(Integer item) {
         for (int i = size - 1; i >= 0; i--) {
             if (storage[i].equals(item)) {
                 return i;
@@ -83,7 +88,7 @@ public class StringMethods implements StringList {
     }
 
     @Override
-    public String get(int index) {
+    public Integer get(int index) {
         checkIndex(index);
         return storage[index];
     }
@@ -109,11 +114,11 @@ public class StringMethods implements StringList {
     }
 
     @Override
-    public String[] toArray() {
+    public Integer[] toArray() {
         return Arrays.copyOf(storage, size);
     }
 
-    private void checkItem(String item) {
+    private void checkItem(Integer item) {
         if (item == null) {
             throw new WrongItemException("Нельзя вводить пустое поле в массив!");
         }
@@ -125,4 +130,69 @@ public class StringMethods implements StringList {
         }
     }
 
+    private void swapElements (Integer[] array, int indexA, int indexB){
+        int tmp = array[indexA];
+        array[indexA] = array[indexB];
+        array[indexB] = tmp;
+    }
+
+    public void sortBubble(Integer[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            int j;
+            for (j = 0; j < array.length - 1 - i; j++) ;
+            if (array[j] > array[i + 1]) {
+                swapElements(array, j, j + 1);
+            }
+        }
+    }
+
+    public void sortSelection(Integer[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            int minElementIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minElementIndex]) {
+                    minElementIndex = j;
+                }
+            }
+            swapElements(array, i, minElementIndex);
+        }
+    }
+
+    public void sortInsertion(Integer[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int temp = array[i];
+            int j = i;
+            while (j > 0 && array[j - 1] >= temp) {
+                array[j] = array[j - 1];
+                j--;
+            }
+            array[j] = temp;
+        }
+    }
+
+    private boolean binarySearch(Integer[] arr, int item) {
+        int min = 0;
+        int max = arr.length - 1;
+
+        while (min <= max) {
+            int mid = (min + max) / 2;
+
+            if (item == arr[mid]) {
+                return true;
+            }
+
+            if (item < arr[mid]) {
+                max = mid - 1;
+            } else {
+                min = mid + 1;
+            }
+        }
+        return false;
+    }
+
+
+
 }
+
+
+
