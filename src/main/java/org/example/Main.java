@@ -21,8 +21,13 @@ public class Main {
                 Integer[] arrayCopyForSort1 = arrayList.toArray(new Integer[arrayList.size()]);
                 Integer[] arrayCopyForSort2 = arrayList.toArray(new Integer[arrayList.size()]);
                 Integer[] arrayCopyForSort3 = arrayList.toArray(new Integer[arrayList.size()]);
+                Integer[] arrayForQuickSort = arrayList.toArray(new Integer[arrayList.size()]);
 
                 long start;
+
+                start = System.currentTimeMillis();
+                stringList.sort(arrayForQuickSort);
+                System.out.println("quick Sort time: " + (System.currentTimeMillis() - start));
 
                 start = System.currentTimeMillis();
                 stringList.sortBubble(arrayCopyForSort1);
@@ -36,6 +41,7 @@ public class Main {
                 stringList.sortInsertion(arrayCopyForSort3);
                 System.out.println("sortInsertion time: " + (System.currentTimeMillis() - start));
 
+
                 arrayList.add(11);
                 arrayList.add(12);
                 arrayList.add(13);
@@ -43,6 +49,6 @@ public class Main {
                 System.out.println("arrayList.contains(11) = " + arrayList.contains(11));
                 System.out.println("arrayList.contains(13) = " + arrayList.contains(13));
 
-
         }
+
 }

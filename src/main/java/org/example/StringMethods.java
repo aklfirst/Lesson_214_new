@@ -22,6 +22,7 @@ public class StringMethods implements StringList {
 
     @Override
     public Integer add(int index, Integer item) {
+        growIfNeeded();
         checkIndex(index);
         checkItem(item);
 
@@ -130,17 +131,13 @@ public class StringMethods implements StringList {
         }
     }
 
-    private void swapElements (Integer[] array, int indexA, int indexB){
-        int tmp = array[indexA];
-        array[indexA] = array[indexB];
-        array[indexB] = tmp;
-    }
 
     public void sortBubble(Integer[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             int j;
             for (j = 0; j < array.length - 1 - i; j++) ;
             if (array[j] > array[i + 1]) {
+                growIfNeeded();
                 swapElements(array, j, j + 1);
             }
         }
@@ -170,6 +167,45 @@ public class StringMethods implements StringList {
         }
     }
 
+   public void sort (Integer[] array){
+        quickSort(array,0,array.length-1);
+
+    }
+
+    private void quickSort(Integer[] array, int begin, int end) {
+        if(begin < end) {
+            int partitionIndex = partition (array,begin,end);
+
+            quickSort(array,begin,partitionIndex-1);
+            quickSort(array,partitionIndex+1,end);
+        }
+
+    }
+
+    private int partition(Integer[] array, int begin, int end) {
+        int pivot = array[end];
+        int i = (begin - 1);
+
+        for (int j = begin; j < end; j++) {
+            if (array[j] <= pivot) {
+                i++;
+
+                swapElements(array, i, j);
+            }
+        }
+        swapElements(array, i + 1, end);
+        return i + 1;
+    }
+
+    private void swapElements(Integer[] array, int i1, int i2) {
+        int temp = array[i1];
+        array[i1] = array[i2];
+        array[i2] = temp;
+
+    }
+
+
+
     private boolean binarySearch(Integer[] arr, int item) {
         int min = 0;
         int max = arr.length - 1;
@@ -190,6 +226,15 @@ public class StringMethods implements StringList {
         return false;
     }
 
+    private void grow() {
+        storage = Arrays.copyOf(storage, size + size / 2);
+    }
+
+        private void growIfNeeded() {
+            if (size == storage.length) {
+                grow();
+            }
+        }
 
 
 }
