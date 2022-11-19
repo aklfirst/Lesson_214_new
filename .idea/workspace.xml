@@ -4,23 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e9a27de-e8c6-476a-b3de-c405095931b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StringList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StringMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/WrongIndexException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/WrongItemException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SpringMethodsTests.java" afterDir="false" />
+    <list default="true" id="3e9a27de-e8c6-476a-b3de-c405095931b3" name="Changes" comment="выполненное ДЗ 2_15">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageIsFullException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StringMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StringMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Lesson_215_new_HW_completed" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -44,14 +45,16 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alexander Klepov/IdeaProjects/Lesson_214_new&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="Lesson_214_new" />
@@ -65,9 +68,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SpringMethodsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_214_new" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SpringMethodsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringMethodsTest.checkAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_214_new" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SpringMethodsTest" />
+      <option name="METHOD_NAME" value="checkAdd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringMethodsTest.checkListsEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_214_new" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SpringMethodsTest" />
+      <option name="METHOD_NAME" value="checkListsEqual" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringMethodsTest.checkRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_214_new" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SpringMethodsTest" />
+      <option name="METHOD_NAME" value="checkRemove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SpringMethodsTest" />
+        <item itemvalue="JUnit.SpringMethodsTest.checkListsEqual" />
+        <item itemvalue="JUnit.SpringMethodsTest.checkAdd" />
+        <item itemvalue="JUnit.SpringMethodsTest.checkRemove" />
       </list>
     </recent_temporary>
   </component>
@@ -79,8 +125,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667164185545</updated>
-      <workItem from="1667164187269" duration="960000" />
+      <workItem from="1667164187269" duration="6252000" />
+      <workItem from="1667563033306" duration="17569000" />
+      <workItem from="1667687673124" duration="4000" />
+      <workItem from="1667939397666" duration="1228000" />
+      <workItem from="1668250739132" duration="1458000" />
+      <workItem from="1668296908266" duration="687000" />
+      <workItem from="1668442505861" duration="4019000" />
+      <workItem from="1668829980349" duration="3378000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1667165794931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667165794931</updated>
+    </task>
+    <task id="LOCAL-00002" summary="выполненное ДЗ">
+      <created>1667170133535</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667170133535</updated>
+    </task>
+    <task id="LOCAL-00003" summary="выполненное ДЗ 2_15">
+      <created>1667603774656</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667603774656</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,5 +171,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="выполненное ДЗ" />
+    <MESSAGE value="выполненное ДЗ 2_15" />
+    <option name="LAST_COMMIT_MESSAGE" value="выполненное ДЗ 2_15" />
   </component>
 </project>
